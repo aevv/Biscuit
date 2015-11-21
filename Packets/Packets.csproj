@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{680CCC2B-7FB0-446D-9893-42DAC77E02BC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Packets</RootNamespace>
+    <AssemblyName>Packets</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\PacketDataAttribute.cs" />
+    <Compile Include="Attributes\PacketMethod.cs" />
+    <Compile Include="ClientPacketReader.cs" />
+    <Compile Include="Client\Character\CharacterCreationResultPacket.cs" />
+    <Compile Include="Client\Character\CharacterDeletionResultPacket.cs" />
+    <Compile Include="Client\Character\CharacterSelectionResultPacket.cs" />
+    <Compile Include="Client\Chat\ChatMessagePacket.cs" />
+    <Compile Include="Client\Map\EntityLocationPacket.cs" />
+    <Compile Include="Client\Map\FinishMapPacket.cs" />
+    <Compile Include="Client\Map\GiveChunkPacket.cs" />
+    <Compile Include="Client\Login\LoginRequestPacket.cs" />
+    <Compile Include="Client\Login\LoginResultPacket.cs" />
+    <Compile Include="Client\Map\RemoveEntityPacket.cs" />
+    <Compile Include="Client\Character\SelectableCharacterPacket.cs" />
+    <Compile Include="Client\Status\ServerOfflinePacket.cs" />
+    <Compile Include="Client\Map\SetMapPacket.cs" />
+    <Compile Include="Infrastructure\PacketRegister.cs" />
+    <Compile Include="Infrastructure\PacketSubscriber.cs" />
+    <Compile Include="Server\Character\CreateCharacterPacket.cs" />
+    <Compile Include="Server\Character\DeleteCharacterPacket.cs" />
+    <Compile Include="Server\World\MoveCharacterPacket.cs" />
+    <Compile Include="Server\Login\LogoutPacket.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Packet.cs" />
+    <Compile Include="Attributes\HandlerHeaderAttribute.cs" />
+    <Compile Include="Attributes\PacketHeaderAttribute.cs" />
+    <Compile Include="PacketReader.cs" />
+    <Compile Include="PacketWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerPacketReader.cs" />
+    <Compile Include="Server\Login\LoginPacket.cs" />
+    <Compile Include="Server\Character\RequestCharactersPacket.cs" />
+    <Compile Include="Server\Character\SelectCharacterPacket.cs" />
+    <Compile Include="Server\World\RequestMapPacket.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BiscuitHeaders\BiscuitHeaders.csproj">
+      <Project>{efc8cf5d-34c5-46a6-9978-ae0403a0a202}</Project>
+      <Name>BiscuitHeaders</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
